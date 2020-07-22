@@ -850,7 +850,7 @@ class RoleManagement(
         await ctx.tick()
         
     @rgroup.command(name="bulkselfadd")
-    async def bulk_self_add_command(
+    async def bulk_selfadd_command(
         self,
         ctx: commands.GuildContext,
         yes_or_no: bool,
@@ -862,6 +862,21 @@ class RoleManagement(
 
         for rol in role:
             await self.config.role(rol).self_role.set(yes_or_no)
+        await ctx.tick()
+        
+    @rgroup.command(name="bulkselfrem")
+    async def bulk_selfrem_command(
+        self,
+        ctx: commands.GuildContext,
+        yes_or_no: bool,
+        *role: discord.Role
+    ):
+        """
+        Sets if a role is self-removable in bulk.
+        """
+
+        for rol in role:
+            await self.config.role(rol).self_removable.set(yes_or_no)
         await ctx.tick()
 
     @checks.bot_has_permissions(manage_roles=True)
