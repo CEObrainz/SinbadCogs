@@ -849,7 +849,7 @@ class RoleManagement(
         await self.config.role(role).self_role.set(yes_or_no)
         await ctx.tick()
         
-    @commands.command(name="bulkselfadd")
+    @rgroup.command(name="bulkselfadd")
     async def bulk_self_add_command(
         self,
         ctx: commands.GuildContext,
