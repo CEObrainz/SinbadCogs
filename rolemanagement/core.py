@@ -848,6 +848,22 @@ class RoleManagement(
 
         await self.config.role(role).self_role.set(yes_or_no)
         await ctx.tick()
+        
+    @commands.command(name="bulkselfadd")
+    async def bulk_role_bind_command(
+        self,
+        ctx: commands.GuildContext,
+        yes_or_no: bool,
+        *,
+        role: discord.Role
+    ):
+        """
+        Sets if a role is self-assignable in bulk.
+        """
+
+        for rol in role:
+            await self.config.role(rol).self_role.set(yes_or_no)
+        await ctx.tick()
 
     @checks.bot_has_permissions(manage_roles=True)
     @commands.guild_only()
