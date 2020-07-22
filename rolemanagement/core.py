@@ -850,7 +850,7 @@ class RoleManagement(
         await ctx.tick()
         
     @commands.command(name="bulkselfadd")
-    async def bulk_role_bind_command(
+    async def bulk_self_add_command(
         self,
         ctx: commands.GuildContext,
         yes_or_no: bool,
