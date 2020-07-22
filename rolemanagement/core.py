@@ -854,8 +854,7 @@ class RoleManagement(
         self,
         ctx: commands.GuildContext,
         yes_or_no: bool,
-        *,
-        role: discord.Role
+        *role: discord.Role
     ):
         """
         Sets if a role is self-assignable in bulk.
